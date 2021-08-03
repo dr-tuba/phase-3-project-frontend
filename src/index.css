@@ -6,10 +6,39 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+#root,
+.app {
+	height: 100vh;
+}
+
+.app {
+	display: flex;
+	position: relative;
+}
+
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 h1 {
 	text-align: center;
+}
+
+.header {
+	padding: 60px;
+	text-align: center;
+	background: #475b63;
+	color: white;
+	font-size: 30px;
+}
+
+.app main {
+	padding: 24px;
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	overflow-y: auto;
+	height: 100%;
+	background-color: #2e2c2f;
+	color: white;
 }
