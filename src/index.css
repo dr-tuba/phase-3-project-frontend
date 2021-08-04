@@ -4,6 +4,8 @@ body {
 		'Droid Sans', 'Helvetica Neue', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	min-height: 100vh;
+	max-width: 100%;
 }
 
 #root,
@@ -24,12 +26,19 @@ h1 {
 	text-align: center;
 }
 
-.header {
+main h1 {
+	text-align: center;
+	margin-top: 2%;
+	margin-bottom: 5%;
+}
+
+header {
 	padding: 60px;
 	text-align: center;
 	background: #475b63;
 	color: white;
 	font-size: 30px;
+	max-width: 100%;
 }
 
 .app main {
@@ -41,4 +50,25 @@ h1 {
 	height: 100%;
 	background-color: #2e2c2f;
 	color: white;
+}
+
+.login-form {
+	padding: 1em;
+}
+
+#student-col {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+}
+
+#teacher-col {
+	display: flex;
+}
+
+img {
+}
+
+.card {
+	align-items: stretch;
 }
