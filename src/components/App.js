@@ -10,12 +10,26 @@ import LockerList from './LockerList';
 
 function App() {
   const [teachers, setTeachers] = useState([])
+  const [lockers, setLockers] = useState([])
+  const [students, setStudents] = useState([])
 
   useEffect(() => {
     fetch('http://localhost:9292/')
     .then(resp => resp.json())
     .then(data => setTeachers(data))
   }, [])
+
+  useEffect(() => {
+    fetch('http://localhost:9292/lockers')
+    .then(resp => resp.json())
+    .then(data => setLockers(data))
+  }, [])
+
+  useEffect(() => {
+    fetch("http://localhost:9292/students")
+    .then(resp => resp.json())
+    .then(data => setStudents(data))
+}, [])
   
   return (
     <BrowserRouter>
@@ -28,7 +42,12 @@ function App() {
               teachers = {teachers}
             />
           </Route>
-          <Route exact path="/students" component={StudentList} />
+          <Route exact path="/students">
+            <StudentList 
+              lockers = {lockers}
+              students = {students}
+            />
+          </Route>
           <Route exact path="/music-library" component={MusicLibrary} />
           <Route exact path="/instruments" component={InstrumentList} />
           <Route exact path="/lockers" component={LockerList} />

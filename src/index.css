@@ -66,9 +66,14 @@ header {
 	display: flex;
 }
 
-img {
-}
-
 .card {
 	align-items: stretch;
+}
+
+.pro-sidebar-footer {
+	text-align: center;
+}
+
+h2 {
+	text-align: center;
 }

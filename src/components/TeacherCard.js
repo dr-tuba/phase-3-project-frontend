@@ -7,7 +7,6 @@ import { useState } from 'react';
 const TeacherCard = ({ full_name, school_name }) => {
     const [showForm, setShowForm] = useState(false)
     const [validated, setValidated] = useState(false)
-    const [token, setToken] = useState();
 
     const handleSubmit = (e) => {
         const form = e.currentTarget;
