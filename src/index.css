@@ -56,16 +56,13 @@ header {
 	padding: 1em;
 }
 
-#student-col {
-	margin-bottom: 20px;
+.student-col {
+	display: grid;
+	min-width: 30vh;
 }
 
 #teacher-col {
 	display: flex;
-}
-
-.card {
-	align-items: stretch;
 }
 
 .pro-sidebar-footer {
@@ -76,12 +73,16 @@ h2 {
 	text-align: center;
 }
 
-.col-md-4 {
-	flex: 0 0 33.3333333%;
-	max-width: 33.3333333%;
-	position: relative;
-	width: 100%;
-	padding-right: 15px;
-	padding-left: 15px;
+.container {
 	display: flex;
+}
+
+.dropdown #dropdown-basic-button {
+	width: 100%;
+	height: 100%;
+}
+
+.dropdown-menu {
+	height: 200px;
+	overflow-y: scroll;
 }
