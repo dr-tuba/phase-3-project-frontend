@@ -1,18 +1,21 @@
+import { useState } from 'react';
 import StudentCard from './StudentCard'
 import Container  from 'react-bootstrap/Container';
-import CardGroup from 'react-bootstrap/CardGroup'
 import Row from 'react-bootstrap/Row';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
 const StudentList = ({ lockers, students, setLockers, handleDelete, handleChange, handleSubmit, assignLocker }) => {    
+    const [showAddStudents, setShowAddStudents] = useState(false)
+    
     return (
         <main>
             <h1>Students Page</h1>
             <br/>
-            <h2>Add New Student</h2>
+            <Button id='add-student-button' variant="dark" onClick={() => setShowAddStudents(!showAddStudents)}>{showAddStudents ? "Collapse Form" : "Add New Student"}</Button>
             <br/>
+            {showAddStudents ? 
             <Form onSubmit={handleSubmit}>
                 <Form.Group as={Row} className="mb-3" controlId="formHorizontalText">
                     <Form.Label column sm={2}>
@@ -89,6 +92,7 @@ const StudentList = ({ lockers, students, setLockers, handleDelete, handleChange
                     </Col>
                 </Form.Group>
             </Form>
+            : null }
             <br/>
             <h2>Current Students</h2>
             <br/>

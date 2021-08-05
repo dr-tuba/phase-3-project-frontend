@@ -1,17 +1,17 @@
 import { ProSidebar, Menu, MenuItem, SubMenu, SidebarHeader, SidebarContent, SidebarFooter } from 'react-pro-sidebar';
 import 'react-pro-sidebar/dist/css/styles.css';
-import { FaDatabase, FaAlignLeft, FaChalkboardTeacher } from 'react-icons/fa';
+import { FaDatabase, FaHome, FaChalkboardTeacher, FaItunesNote } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const Sidebar = () => {    
     return (
         <ProSidebar>
             <SidebarHeader>
-                <h1>BandDB</h1>
+                <h1><FaItunesNote /> BandDB</h1>
             </SidebarHeader>
             <SidebarContent>
                 <Menu iconShape="circle">
-                    <MenuItem icon={<FaDatabase />}>
+                    <MenuItem icon={<FaHome />}>
                         Home
                         <Link to='/' />
                     </MenuItem>
@@ -19,7 +19,7 @@ const Sidebar = () => {
                         Teacher Login
                         <Link to='/teachers' />
                     </MenuItem>
-                    <SubMenu title="Data" icon={<FaAlignLeft />}>
+                    <SubMenu title="Data" icon={<FaDatabase />}>
                         <MenuItem>
                             Students
                             <Link to='/students' />
@@ -39,7 +39,7 @@ const Sidebar = () => {
                     </SubMenu>
                 </Menu>
             </SidebarContent>
-            <SidebarFooter>
+            <SidebarFooter className='sidebar-footer'>
                 <p>Created by Steve Vaughn</p>
             </SidebarFooter>
         </ProSidebar>

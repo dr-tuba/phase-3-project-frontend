@@ -1,7 +1,9 @@
+* {
+	font-family: 'Raleway', sans-serif;
+}
+
 body {
 	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
-		'Droid Sans', 'Helvetica Neue', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	min-height: 100vh;
@@ -18,27 +20,28 @@ body {
 	position: relative;
 }
 
-code {
-	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-}
-
 h1 {
 	text-align: center;
 }
 
-main h1 {
+h2 {
 	text-align: center;
-	margin-top: 2%;
-	margin-bottom: 5%;
 }
 
-header {
-	padding: 60px;
+.jumbotron {
+	padding: 6rem;
 	text-align: center;
-	background: #475b63;
+	background-color: #475b63;
 	color: white;
-	font-size: 30px;
+	font-size: 60px;
 	max-width: 100%;
+	border-radius: 1.5rem;
+	margin-bottom: 16px;
+}
+
+.jumbotron span {
+	font-weight: initial;
+	font-size: 30px;
 }
 
 .app main {
@@ -69,10 +72,6 @@ header {
 	text-align: center;
 }
 
-h2 {
-	text-align: center;
-}
-
 .container {
 	display: flex;
 }
@@ -85,4 +84,65 @@ h2 {
 .dropdown-menu {
 	height: 200px;
 	overflow-y: scroll;
+}
+
+.home-cols {
+	background-color: #729b79;
+	padding-top: 1rem;
+	padding-bottom: 2rem;
+	margin-top: 2rem;
+	margin-bottom: 1rem;
+	border-radius: 1.5rem;
+	margin-left: 15%;
+	margin-right: 15%;
+}
+
+.home-cols > p {
+	text-align: center;
+}
+
+.home-why {
+	background-color: #bacdb0;
+	color: black;
+	padding-top: 1rem;
+	padding-bottom: 2rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	border-radius: 1.5rem;
+	margin-left: 15%;
+	margin-right: 15%;
+}
+
+.home-why > p {
+	text-align: center;
+}
+
+p > a {
+	color: #0060b6;
+	text-decoration: none;
+}
+
+p > a:hover {
+	color: #00a0c6;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.sidebar-footer {
+	padding: 1rem;
+}
+
+.pro-sidebar-header h1 {
+	font-family: 'Rock Salt', cursive;
+	padding: .5rem;
+}
+
+.rock-salt-font {
+	font-family: 'Rock Salt', cursive;
+}
+
+#add-student-button {
+	width: 8rem;
+	margin-left: auto;
+	margin-right: auto;
 }
