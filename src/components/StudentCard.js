@@ -30,15 +30,15 @@ const StudentCard = ({ first_name, last_name, email, picture_url, grade_level, s
     }, [student_locker, hasLocker])
 
     return (
-        <Col id='student-col' className='md-4' xs={6} lg={4}>
+        <Col id='student-col'>
             <Card bg='dark'>
                 <Card.Header className='text-center'>{first_name} {last_name} - {grade_level}th Grade</Card.Header>
                 <Card.Img variant="top" src={picture_url} />
                 <Card.Body>
                     <Card.Title>Student at {school_name}</Card.Title>
                     <Card.Text>
-                        email: {email} <br/>
-                        Instruments checked out: <br/>
+                        <p>email: {email}</p><br/>
+                        <p>Instruments checked out: </p><br/>
                         Locker Assignment: <br/>
                         Number: <span>{hasLocker ? lockerNumber : null}<br/></span>
                         Combination: <span>{hasLocker ? lockerCombo : null}<br/></span>

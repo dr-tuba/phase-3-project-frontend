@@ -57,9 +57,7 @@ header {
 }
 
 #student-col {
-	display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
+	margin-bottom: 20px;
 }
 
 #teacher-col {
@@ -76,4 +74,14 @@ header {
 
 h2 {
 	text-align: center;
+}
+
+.col-md-4 {
+	flex: 0 0 33.3333333%;
+	max-width: 33.3333333%;
+	position: relative;
+	width: 100%;
+	padding-right: 15px;
+	padding-left: 15px;
+	display: flex;
 }
