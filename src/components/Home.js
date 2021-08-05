@@ -2,7 +2,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import bandRoom from '../assets/bandRoom.jpeg'
-import { FaPhone, FaGithub, FaInbox, FaHome } from 'react-icons/fa';
+import { FaHome, FaGithub, FaInbox, FaLinkedin } from 'react-icons/fa';
 
 const Home = () => {
     return (
@@ -49,7 +49,7 @@ const Home = () => {
                     </Col>
                 </Row>
             </Container>
-            <Container className='bg-dark text-center text-lg-start'>
+            <Container className='bg-dark text-center text-lg-start home-footer'>
                 <Container className="p-4">
                     <Row>
                         <Col className="col-lg-6 col-md-12 mb-4 mb-md-0">
@@ -62,8 +62,8 @@ const Home = () => {
                             <h5 className="text-uppercase">Contact</h5>
                             <p><FaHome /> Denver, CO 80249, US</p>
                             <p><FaInbox /> steve@example.com</p>
-                            <p><FaPhone /> + 01 234 567 88</p>
-                            <p><FaGithub /><a href="https://github.com/dr-tuba"> GitHub Page</a></p>
+                            <p><FaLinkedin /> <a href="https://www.linkedin.com/in/stevehvaughn/"> LinkedIn Profile</a></p>
+                            <p><FaGithub /> <a href="https://github.com/dr-tuba"> GitHub Page</a></p>
                         </Col>
                     </Row>
                 </Container>
