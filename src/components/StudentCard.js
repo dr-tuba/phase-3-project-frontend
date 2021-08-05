@@ -5,35 +5,30 @@ import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton';
 
-const StudentCard = ({first_name, last_name, email, picture_url, grade_level, school_name, id, lockers}) => {
+const StudentCard = ({ first_name, last_name, email, picture_url, grade_level, school_name, student_id, lockers, handleDelete, assignLocker }) => {
     const [hasLocker, setHasLocker] = useState(false)
+    const [lockerNumber, setLockerNumber] = useState()
+    const [lockerCombo, setLockerCombo] = useState()
+
+    const student_locker = lockers.filter(locker => locker.student_id === student_id)
 
     useEffect(() => {
         if (student_locker.length > 0) {
             setHasLocker(true)
-            return "Re-assign Locker"
+            setLockerNumber(Object.values(student_locker)[0].locker_number)
+            setLockerCombo(Object.values(student_locker)[0].locker_combination)
         } else {
-            setHasLocker(false)
-            return "Assign Locker"    
+            setHasLocker(false)  
         }
-    }, [lockers])
+    }, [student_locker])
 
-    const student_locker = lockers.filter(locker => locker.student_id === id)
+    useEffect(() => {
+        if (hasLocker === true) {
+            setLockerNumber(Object.values(student_locker)[0].locker_number)
+            setLockerCombo(Object.values(student_locker)[0].locker_combination)
+        } 
+    }, [student_locker, hasLocker])
 
-    function assignLocker(e) {
-        id = parseInt(e.target.id)
-        console.log(id)
-        fetch(`http://localhost:9292/lockers/${id}`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                student_id: id
-            })
-        })
-    }
-  
     return (
         <Col id='student-col' className='md-4' xs={6} lg={4}>
             <Card bg='dark'>
@@ -45,8 +40,8 @@ const StudentCard = ({first_name, last_name, email, picture_url, grade_level, sc
                         email: {email} <br/>
                         Instruments checked out: <br/>
                         Locker Assignment: <br/>
-                        Number: <span>{hasLocker ? Object.values(student_locker)[0].locker_number : null}<br/></span>
-                        Combination: <span>{hasLocker ? Object.values(student_locker)[0].locker_combination : null}<br/></span>
+                        Number: <span>{hasLocker ? lockerNumber : null}<br/></span>
+                        Combination: <span>{hasLocker ? lockerCombo : null}<br/></span>
                     </Card.Text>
                 </Card.Body>
                 <Card.Footer className='d-grid gap-2'>
@@ -58,7 +53,7 @@ const StudentCard = ({first_name, last_name, email, picture_url, grade_level, sc
                         </DropdownButton>
                     }
                     <Button size='sm' variant='light'>Checkout Instrument</Button>
-                    <Button size='sm' variant='danger'>Remove Student</Button>
+                    <Button size='sm' variant='danger' id={student_id} onClick={handleDelete}>Remove Student</Button>
                 </Card.Footer>
             </Card>
         </Col>

@@ -5,20 +5,20 @@ import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
-const StudentList = ({ lockers, students }) => {
+const StudentList = ({ lockers, students, setLockers, handleDelete, handleChange, handleSubmit, assignLocker }) => {    
     return (
         <main>
             <h1>Students Page</h1>
             <br/>
             <h2>Add New Student</h2>
             <br/>
-            <Form>
+            <Form onSubmit={handleSubmit}>
                 <Form.Group as={Row} className="mb-3" controlId="formHorizontalText">
                     <Form.Label column sm={2}>
                     First Name
                     </Form.Label>
                     <Col sm={10}>
-                    <Form.Control type="email" placeholder="First Name" />
+                    <Form.Control type="text" placeholder="First Name" />
                     </Col>
                 </Form.Group>
                 <Form.Group as={Row} className="mb-3" controlId="formHorizontalText">
@@ -26,7 +26,7 @@ const StudentList = ({ lockers, students }) => {
                     Last Name
                     </Form.Label>
                     <Col sm={10}>
-                    <Form.Control type="email" placeholder="Last Name" />
+                    <Form.Control type="text" placeholder="Last Name" />
                     </Col>
                 </Form.Group>
                 <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
@@ -42,40 +42,44 @@ const StudentList = ({ lockers, students }) => {
                     School
                     </Form.Label>
                     <Col sm={10}>
-                    <Form.Control type="email" placeholder="Current School" />
+                    <Form.Control type="text" placeholder="Current School" />
                     </Col>
                 </Form.Group>
                 <fieldset>
-                    <Form.Group as={Row} className="mb-3">
-                    <Form.Label as="legend" column sm={2}>
-                        Grade
-                    </Form.Label>
-                    <Col sm={10}>
-                        <Form.Check
-                        type="radio"
-                        label="9th"
-                        name="formHorizontalRadios"
-                        id="formHorizontalRadios1"
-                        />
-                        <Form.Check
-                        type="radio"
-                        label="10th"
-                        name="formHorizontalRadios"
-                        id="formHorizontalRadios2"
-                        />
-                        <Form.Check
-                        type="radio"
-                        label="11th"
-                        name="formHorizontalRadios"
-                        id="formHorizontalRadios3"
-                        />
-                        <Form.Check
-                        type="radio"
-                        label="12th"
-                        name="formHorizontalRadios"
-                        id="formHorizontalRadios3"
-                        />
-                    </Col>
+                    <Form.Group as={Row} className="mb-3" controlId='formHorizontalText'>
+                        <Form.Label as="legend" column sm={2}>
+                            Grade
+                        </Form.Label>
+                        <Col sm={10}>
+                            <Form.Check
+                            type="radio"
+                            label="9"
+                            name="formHorizontalRadios"
+                            id="formHorizontalRadios1"
+                            onChange={handleChange}
+                            />
+                            <Form.Check
+                            type="radio"
+                            label="10"
+                            name="formHorizontalRadios"
+                            id="formHorizontalRadios2"
+                            onChange={handleChange}
+                            />
+                            <Form.Check
+                            type="radio"
+                            label="11"
+                            name="formHorizontalRadios"
+                            id="formHorizontalRadios3"
+                            onChange={handleChange}
+                            />
+                            <Form.Check
+                            type="radio"
+                            label="12"
+                            name="formHorizontalRadios"
+                            id="formHorizontalRadios4"
+                            onChange={handleChange}
+                            />
+                        </Col>
                     </Form.Group>
                 </fieldset>
                 <Form.Group as={Row} className="mb-3">
@@ -92,14 +96,18 @@ const StudentList = ({ lockers, students }) => {
                     {students.map(student => { return (
                     <StudentCard 
                         key = {student.id}
-                        id = {student.id}
+                        student_id = {student.id}
                         first_name = {student.first_name}
                         last_name = {student.last_name}
                         grade_level = {student.grade_level}
                         email = {student.email}
                         picture_url = {student.picture_url}
                         school_name = {student.school.school_name}
+                        student_locker = {student.locker}
                         lockers = {lockers}
+                        setLockers = {setLockers}
+                        handleDelete = {handleDelete}
+                        assignLocker = {assignLocker}
                     />
                     )})}
                 </Row>

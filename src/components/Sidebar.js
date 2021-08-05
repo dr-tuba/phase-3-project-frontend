@@ -3,7 +3,7 @@ import 'react-pro-sidebar/dist/css/styles.css';
 import { FaDatabase, FaAlignLeft, FaChalkboardTeacher } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-const Sidebar = (props) => {    
+const Sidebar = () => {    
     return (
         <ProSidebar>
             <SidebarHeader>
