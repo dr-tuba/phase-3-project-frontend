@@ -33,7 +33,7 @@ const Sidebar = () => {
                             <Link to='/instruments' />
                         </MenuItem>
                         <MenuItem>
-                            Locker Assignments
+                            Lockers
                             <Link to='/lockers' />
                         </MenuItem>
                     </SubMenu>

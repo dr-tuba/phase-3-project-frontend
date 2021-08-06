@@ -6,8 +6,8 @@ import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
-const StudentList = ({ lockers, students, setLockers, handleDelete, handleChange, handleSubmit, assignLocker, handleUnassignLocker, instruments, assignInstrument }) => {    
-    const [showAddStudents, setShowAddStudents] = useState(false)
+const StudentList = ({ lockers, students, setLockers, handleDelete, handleChange, handleSubmit, assignLocker, handleUnassignLocker, instruments, assignInstrument, showAddStudents, setShowAddStudents }) => {    
+    
     
     return (
         <main>

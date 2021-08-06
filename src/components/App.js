@@ -15,6 +15,7 @@ function App() {
   const [instruments, setInstruments] = useState([])
   const [gradeLevelInput, setGradeLevelInput] = useState()
   const [addLocker, setAddLocker] = useState(false)
+  const [showAddStudents, setShowAddStudents] = useState(false)
   const [formData, setFormData] = useState({
     first_name: "",
     last_name: "",
@@ -79,6 +80,7 @@ function App() {
         e.target[2].value = ""
         e.target[3].value = ""
     })
+    setShowAddStudents(false)
   }
 
   function assignLocker(e) {
@@ -127,8 +129,6 @@ function App() {
     const studentsWithoutDeleted = students.filter(student => student.id !== clickedStudentId)
     setStudents(studentsWithoutDeleted)
   }
-
-  console.log(students)
   
   return (
     <BrowserRouter>
@@ -156,6 +156,8 @@ function App() {
               handleUnassignLocker = {handleUnassignLocker}
               instruments = {instruments}
               assignInstrument = {assignInstrument}
+              showAddStudents = {showAddStudents}
+              setShowAddStudents = {setShowAddStudents}
             />
           </Route>
           <Route exact path="/music-library" component={MusicLibrary} />
