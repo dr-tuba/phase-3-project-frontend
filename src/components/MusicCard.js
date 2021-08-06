@@ -1,5 +1,3 @@
-
-
 const MusicCard = ({instrumentation, title, genre, difficulty_level, school_name, publisher, id }) => {
     return (
             <tr>

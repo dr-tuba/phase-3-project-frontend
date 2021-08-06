@@ -14,7 +14,7 @@ const MusicLibrary = () => {
     return (
         <main>
           <h1>Music Library</h1>
-          <Table responsive striped bordered hover size="sm" variant="dark">
+          <Table striped bordered hover size="sm" variant="dark">
                 <thead>
                     <tr>
                         <th>#</th>

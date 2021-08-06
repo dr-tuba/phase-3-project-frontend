@@ -13,15 +13,17 @@ const StudentCard = ({ first_name, last_name, email, picture_url, grade_level, s
     const [lockerCombo, setLockerCombo] = useState()
     const [lockerId, setLockerId] = useState()
 
-    const student_locker = lockers.filter(locker => locker.student_id === student_id)
+    const student_locker = lockers.find(locker => locker.student_id === student_id)
     const student_instruments = instruments.filter(instrument => instrument.student_id === student_id)
 
+    console.log(student_locker)
+
     useEffect(() => {
-        if (student_locker.length > 0) {
+        if (student_locker) {
             setHasLocker(true)
-            setLockerId(student_locker[0].id)
-            setLockerNumber(Object.values(student_locker)[0].locker_number)
-            setLockerCombo(Object.values(student_locker)[0].locker_combination)
+            setLockerId(student_locker.id)
+            setLockerNumber(student_locker.locker_number)
+            setLockerCombo(student_locker.locker_combination)
         } else {
             setHasLocker(false)  
         }
