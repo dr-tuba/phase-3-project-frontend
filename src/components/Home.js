@@ -26,7 +26,6 @@ const Home = () => {
                     <Col>
                         <article className='home-cols'>
                             <h2>Instrument Inventory</h2>
-                            <br/>
                             <p>Manage your instrument inventory with an easy to use interface!</p>
                             <p>Record instruments that are checked out to students and their condition electronically!</p>
                             <p>Includes inventory for accessories such as reeds, mouthpieces, valve oil, etc...</p>
@@ -34,14 +33,12 @@ const Home = () => {
                         </article>
                         <article className='home-cols'>
                             <h2>Music Library</h2>
-                            <br/>
                             <p>Keep track of which pieces you recently performed without having to browse through old programs!</p>
                             <p>Easily input newly purchased pieces by scanning the barcode!</p>
                             <p>Customize the table to match your existing organizational system!</p>
                         </article>
                         <article className='home-cols'>
                             <h2>Student Database</h2>
-                            <br/>
                             <p>Manage student information and send mass emails to parents!</p>
                             <p>Assign lockers to students and quickly retreive the combination when they forget it!</p>
                             <p>See all the instruments that a student has checked out!</p>

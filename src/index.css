@@ -93,12 +93,21 @@ h2 {
 	margin-top: 2rem;
 	margin-bottom: 1rem;
 	border-radius: 1.5rem;
-	margin-left: 15%;
-	margin-right: 15%;
+	margin-left: 8%;
+	margin-right: 8%;
 }
 
 .home-cols > p {
 	text-align: center;
+	font-size: 1.15rem;
+	font-weight: 575;
+	font-style: italic;
+	color: black;
+}
+
+.home-cols > h2 {
+	color: black;
+	font-weight: bold;
 }
 
 .home-why {
@@ -150,6 +159,7 @@ p > a:hover {
 
 .home-footer {
 	border-radius: 1.5rem;
+	margin-top: 16px;
 }
 
 #home-img {
@@ -164,8 +174,4 @@ p > a:hover {
 #student-locker-title {
 	text-align: center;
 	font-weight: bold;
-}
-
-#student-locker-title > span {
-	/* this is for the actual locker number and combo */
 }
