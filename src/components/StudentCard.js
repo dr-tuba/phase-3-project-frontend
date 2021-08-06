@@ -47,26 +47,26 @@ const StudentCard = ({ first_name, last_name, email, picture_url, grade_level, s
                         <Card.Title><h5>{grade_level}th Grade Student<br/>{school_name}</h5></Card.Title>
                         <Card.Text>
                             <p><FaEnvelope />: {email}</p>
-                            {hasInstrument ?
-                            <p>Instruments checked out: </p>
+                            {hasInstrument 
+                            ? <p>Instruments checked out: </p>
                             : null }
-                            {hasLocker ? 
-                            <h5 id='student-locker-title'>Locker Assignment<br/>
-                            Number: <span>{lockerNumber}<br/></span>
-                            Combination: <span>{lockerCombo}</span></h5>
+                            {hasLocker 
+                            ? <h5 id='student-locker-title'>Locker Assignment<br/>
+                              Number: <span>{lockerNumber}<br/></span>
+                              Combination: <span>{lockerCombo}</span></h5>
                             : null }
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer className='d-grid gap-2'>
                         <div className='d-grid gap-2'>
-                            {hasLocker ? <Button size='sm' variant="warning" id={lockerId} onClick={handleUnassignLocker}>Unassign Locker</Button>  
+                            {hasLocker 
+                            ?   <Button size='sm' variant="warning" id={lockerId} onClick={handleUnassignLocker}>Unassign Locker</Button>  
                             :   <DropdownButton size='sm' title="Assign Locker" id='dropdown-basic-button' variant="primary" align="end"> 
-                                    <Dropdown.Header>Unassigned Lockers</Dropdown.Header>
-                                    {emptyLockers.map(locker => { return (
-                                        <Dropdown.Item as='button' key={locker.id} id={locker.id} onClick={assignLocker}>#{locker.locker_number}</Dropdown.Item>
-                                    )})}   
-                                </DropdownButton>
-                            }
+                                <Dropdown.Header>Unassigned Lockers</Dropdown.Header>
+                                {emptyLockers.map(locker => { return (
+                                    <Dropdown.Item as='button' key={locker.id} id={locker.id} onClick={assignLocker}>#{locker.locker_number}</Dropdown.Item>
+                                )})}   
+                                </DropdownButton> }
                             {hasInstrument ? <Button size='sm' variant='light' onClick={assignInstrument}>Turn-in Instrument</Button> : null }
                             <Button size='sm' variant='danger' id={student_id} onClick={handleDelete}>Remove Student</Button>
                         </div>
