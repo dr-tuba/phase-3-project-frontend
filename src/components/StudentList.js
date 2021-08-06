@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
-const StudentList = ({ lockers, students, setLockers, handleDelete, handleChange, handleSubmit, assignLocker }) => {    
+const StudentList = ({ lockers, students, setLockers, handleDelete, handleChange, handleSubmit, assignLocker, handleUnassignLocker }) => {    
     const [showAddStudents, setShowAddStudents] = useState(false)
     
     return (
@@ -97,7 +97,7 @@ const StudentList = ({ lockers, students, setLockers, handleDelete, handleChange
             <h2>Current Students</h2>
             <br/>
             <Container>
-                <Row className='g-3'>
+                <Row className='g-4'>
                         {students.map(student => { return (
                         <StudentCard 
                             key = {student.id}
@@ -113,6 +113,7 @@ const StudentList = ({ lockers, students, setLockers, handleDelete, handleChange
                             setLockers = {setLockers}
                             handleDelete = {handleDelete}
                             assignLocker = {assignLocker}
+                            handleUnassignLocker = {handleUnassignLocker}
                         />
                         )})}
                 </Row>

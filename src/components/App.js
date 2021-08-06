@@ -87,7 +87,22 @@ function App() {
         })
     })
     setAddLocker(!addLocker)
-}
+  }
+
+  function handleUnassignLocker(e) {
+    const clickedLockerId = e.target.id
+    console.log(clickedLockerId)
+    fetch(`http://localhost:9292/lockers/${clickedLockerId}`, {
+      method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            student_id: null
+        })
+    })
+    setAddLocker(!addLocker)
+  }
 
   const handleDelete = (e) => {
     const clickedStudentId = parseInt(e.target.id)
@@ -124,6 +139,7 @@ function App() {
               handleSubmit = {handleSubmit}
               handleChange = {handleChange}
               assignLocker = {assignLocker}
+              handleUnassignLocker = {handleUnassignLocker}
             />
           </Route>
           <Route exact path="/music-library" component={MusicLibrary} />
