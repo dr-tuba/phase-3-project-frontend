@@ -6,14 +6,15 @@ import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import { FaEnvelope } from 'react-icons/fa'
 
-const StudentCard = ({ first_name, last_name, email, picture_url, grade_level, school_name, student_id, lockers, handleDelete, assignLocker, handleUnassignLocker }) => {
+const StudentCard = ({ first_name, last_name, email, picture_url, grade_level, school_name, student_id, lockers, handleDelete, assignLocker, handleUnassignLocker, instruments, assignInstrument }) => {
     const [hasLocker, setHasLocker] = useState(false)
+    const [hasInstrument, setHasInstrument] = useState(false)
     const [lockerNumber, setLockerNumber] = useState()
     const [lockerCombo, setLockerCombo] = useState()
     const [lockerId, setLockerId] = useState()
-    const [showCombo, setShowCombo] = useState(false)
 
     const student_locker = lockers.filter(locker => locker.student_id === student_id)
+    const student_instruments = instruments.filter(instrument => instrument.student_id === student_id)
 
     useEffect(() => {
         if (student_locker.length > 0) {
@@ -26,9 +27,13 @@ const StudentCard = ({ first_name, last_name, email, picture_url, grade_level, s
         }
     }, [student_locker])
 
-    function showOrHideCombo(e) {
-        setShowCombo(!showCombo)
-    }
+    useEffect(() => {
+        if (student_instruments.length > 0) {
+            setHasInstrument(true)
+        } else {
+            setHasInstrument(false)  
+        }
+    }, [student_instruments])
 
     return (
             <Col className='student-col'>
@@ -39,7 +44,9 @@ const StudentCard = ({ first_name, last_name, email, picture_url, grade_level, s
                         <Card.Title><h5>{grade_level}th Grade Student<br/>{school_name}</h5></Card.Title>
                         <Card.Text>
                             <p><FaEnvelope />: {email}</p>
+                            {hasInstrument ?
                             <p>Instruments checked out: </p>
+                            : null }
                             {hasLocker ? 
                             <h5 id='student-locker-title'>Locker Assignment<br/>
                             Number: <span>{lockerNumber}<br/></span>
@@ -57,7 +64,7 @@ const StudentCard = ({ first_name, last_name, email, picture_url, grade_level, s
                                     )})}   
                                 </DropdownButton>
                             }
-                            <Button size='sm' variant='light'>Checkout Instrument</Button>
+                            {hasInstrument ? <Button size='sm' variant='light' onClick={assignInstrument}>Turn-in Instrument</Button> : null }
                             <Button size='sm' variant='danger' id={student_id} onClick={handleDelete}>Remove Student</Button>
                         </div>
                     </Card.Footer>

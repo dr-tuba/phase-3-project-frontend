@@ -12,6 +12,7 @@ function App() {
   const [teachers, setTeachers] = useState([])
   const [lockers, setLockers] = useState([])
   const [students, setStudents] = useState([])
+  const [instruments, setInstruments] = useState([])
   const [gradeLevelInput, setGradeLevelInput] = useState()
   const [addLocker, setAddLocker] = useState(false)
   const [formData, setFormData] = useState({
@@ -39,6 +40,12 @@ function App() {
     .then(resp => resp.json())
     .then(data => setStudents(data))
   }, [formData])
+
+  useEffect(() => {
+    fetch('http://localhost:9292/instruments')
+    .then(resp => resp.json())
+    .then(data => setInstruments(data))
+  }, [])
 
   const handleChange = (e) => {
       setGradeLevelInput(e.target.labels[0].textContent)
@@ -104,6 +111,11 @@ function App() {
     setAddLocker(!addLocker)
   }
 
+  function assignInstrument(e) {
+    const clickedStudentId = parseInt(e.target.nextSibling.id)
+
+  }
+
   const handleDelete = (e) => {
     const clickedStudentId = parseInt(e.target.id)
     fetch(`http://localhost:9292/students/${clickedStudentId}`, {
@@ -140,11 +152,22 @@ function App() {
               handleChange = {handleChange}
               assignLocker = {assignLocker}
               handleUnassignLocker = {handleUnassignLocker}
+              instruments = {instruments}
+              assignInstrument = {assignInstrument}
             />
           </Route>
           <Route exact path="/music-library" component={MusicLibrary} />
-          <Route exact path="/instruments" component={InstrumentList} />
-          <Route exact path="/lockers" component={LockerList} />
+          <Route exact path="/instruments">
+            <InstrumentList 
+              instruments = {instruments}
+              students = {students}
+            />
+          </Route>
+          <Route exact path="/lockers">
+            <LockerList 
+              lockers = {lockers}
+            />
+          </Route>
         </Switch>  
       </div>
     </BrowserRouter>
