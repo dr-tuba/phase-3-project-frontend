@@ -127,6 +127,8 @@ function App() {
     const studentsWithoutDeleted = students.filter(student => student.id !== clickedStudentId)
     setStudents(studentsWithoutDeleted)
   }
+
+  console.log(students)
   
   return (
     <BrowserRouter>
@@ -166,6 +168,7 @@ function App() {
           <Route exact path="/lockers">
             <LockerList 
               lockers = {lockers}
+              students = {students}
             />
           </Route>
         </Switch>  

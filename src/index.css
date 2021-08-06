@@ -175,3 +175,8 @@ p > a:hover {
 	text-align: center;
 	font-weight: bold;
 }
+
+#lockers-page > table {
+	display: table-caption;
+	columns: 3 auto;
+}
