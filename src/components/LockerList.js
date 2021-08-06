@@ -2,6 +2,20 @@ import Locker from "./Locker"
 import Table from 'react-bootstrap/Table'
 
 const LockerList = ({ lockers, students }) => {  
+  const sortedLockers = lockers.sort(function(a, b) {
+    const aNum = a.locker_number
+    const bNum = b.locker_number
+
+    if (aNum < bNum) {
+      return -1
+    }
+    if ( aNum > bNum) {
+      return 1
+    }
+    
+    return 0
+  })
+  
   return (
         <main id="lockers-page">
           <h1>Lockers</h1>
@@ -14,7 +28,7 @@ const LockerList = ({ lockers, students }) => {
                       </tr>
                   </thead>
                   <tbody>
-                    {lockers.map(locker => { return (
+                    {sortedLockers.map(locker => { return (
                       <Locker 
                         locker_number = {locker.locker_number}
                         locker_combination = {locker.locker_combination}
