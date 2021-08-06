@@ -13,29 +13,30 @@ const StudentCard = ({ first_name, last_name, email, picture_url, grade_level, s
     const [lockerCombo, setLockerCombo] = useState()
     const [lockerId, setLockerId] = useState()
 
-    const student_locker = lockers.find(locker => locker.student_id === student_id)
-    const student_instruments = instruments.filter(instrument => instrument.student_id === student_id)
-
-    console.log(student_locker)
+    // Refactor these lines so that I'm not iterating through 3 different arrays for each Student instance that exists!
+    const studentLocker = lockers.find(locker => locker.student_id === student_id)
+    const studentInstruments = instruments.filter(instrument => instrument.student_id === student_id)
+    const emptyLockers = lockers.filter(locker => locker.student_id === null)
+    //
 
     useEffect(() => {
-        if (student_locker) {
+        if (studentLocker) {
             setHasLocker(true)
-            setLockerId(student_locker.id)
-            setLockerNumber(student_locker.locker_number)
-            setLockerCombo(student_locker.locker_combination)
+            setLockerId(studentLocker.id)
+            setLockerNumber(studentLocker.locker_number)
+            setLockerCombo(studentLocker.locker_combination)
         } else {
             setHasLocker(false)  
         }
-    }, [student_locker])
+    }, [studentLocker])
 
     useEffect(() => {
-        if (student_instruments.length > 0) {
+        if (studentInstruments.length > 0) {
             setHasInstrument(true)
         } else {
             setHasInstrument(false)  
         }
-    }, [student_instruments])
+    }, [studentInstruments])
 
     return (
             <Col className='student-col'>
@@ -61,7 +62,7 @@ const StudentCard = ({ first_name, last_name, email, picture_url, grade_level, s
                             {hasLocker ? <Button size='sm' variant="warning" id={lockerId} onClick={handleUnassignLocker}>Unassign Locker</Button>  
                             :   <DropdownButton size='sm' title="Assign Locker" id='dropdown-basic-button' variant="primary" align="end"> 
                                     <Dropdown.Header>Unassigned Lockers</Dropdown.Header>
-                                    {lockers.filter(locker => locker.student_id === null).map(locker => { return (
+                                    {emptyLockers.map(locker => { return (
                                         <Dropdown.Item as='button' key={locker.id} id={locker.id} onClick={assignLocker}>#{locker.locker_number}</Dropdown.Item>
                                     )})}   
                                 </DropdownButton>
