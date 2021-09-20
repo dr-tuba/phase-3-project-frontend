@@ -46,7 +46,7 @@ const StudentCard = ({ first_name, last_name, email, picture_url, grade_level, s
                     <Card.Body>
                         <Card.Title><h5>{grade_level}th Grade Student<br/>{school_name}</h5></Card.Title>
                         <Card.Text>
-                            <p><FaEnvelope />: {email}</p>
+                            <p><FaEnvelope /> {email}</p>
                             {hasInstrument ? <p>Instruments checked out: </p> : null }
                             {hasLocker 
                             ? <h5 id='student-locker-title'>Locker Assignment<br/>

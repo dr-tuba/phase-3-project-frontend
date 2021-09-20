@@ -1,12 +1,12 @@
 import Sidebar from './Sidebar';
 import Home from './Home';
-import TeacherList from './TeacherList'
 import StudentList from './StudentList';
 import { useState, useEffect } from 'react';
 import {BrowserRouter, Switch, Route } from 'react-router-dom'
 import InstrumentList from './InstrumentList';
 import MusicLibrary from './MusicLibrary';
 import LockerList from './LockerList';
+import Login from './Login';
 
 function App() {
   const [teachers, setTeachers] = useState([])
@@ -137,7 +137,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/teachers">
-            <TeacherList
+            <Login
               teachers = {teachers}
             />
           </Route>

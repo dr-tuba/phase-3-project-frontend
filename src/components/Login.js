@@ -1,11 +1,9 @@
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
 import { useState } from 'react';
+import Form from 'react-bootstrap/form'
+import Button from 'react-bootstrap/Button';
+import InputGroup from 'react-bootstrap/InputGroup';
 
-const TeacherCard = ({ full_name, school_name }) => {
-    const [showForm, setShowForm] = useState(false)
+const Login = ({ teachers }) => {
     const [validated, setValidated] = useState(false)
 
     const handleSubmit = (e) => {
@@ -17,9 +15,9 @@ const TeacherCard = ({ full_name, school_name }) => {
 
         setValidated(true);
     }
-
-    const loginForm = () => {
-        return (
+    
+    return (
+        <main>
             <Form noValidate validated={validated} onSubmit={handleSubmit} className='login-form'>
                 <Form.Group className='mb-3' controlId='formBasicEmail'>
                     <Form.Label>Email</Form.Label>
@@ -48,21 +46,8 @@ const TeacherCard = ({ full_name, school_name }) => {
                     Submit
                 </Button>
             </Form>
-        )
-    }
-    
-    return (
-        <Card bg='dark'>
-            <Card.Body>
-                <Card.Title>{full_name}</Card.Title>
-                <Card.Text>
-                    Teacher at {school_name}
-                </Card.Text>
-                <Button variant="primary" size='sm' onClick={() => setShowForm(!showForm)}>{showForm ? "Collapse" : "Login"}</Button>
-            </Card.Body>
-            {showForm ? loginForm() : null}
-        </Card>
+        </main>
     )
 }
 
-export default TeacherCard
+export default Login

@@ -59,9 +59,9 @@ const Home = () => {
                         <Col className="col-lg-6 col-md-12 mb-4 mb-md-0">
                             <h5 className="text-uppercase">Contact</h5>
                             <p><FaHome /> Denver, CO 80249, US</p>
-                            <p><FaInbox /> steve@example.com</p>
+                            <p><FaInbox /> steve.h.vaughn@gmail.com</p>
                             <p><FaLinkedin /> <a href="https://www.linkedin.com/in/stevehvaughn/"> LinkedIn Profile</a></p>
-                            <p><FaGithub /> <a href="https://github.com/dr-tuba"> GitHub Page</a></p>
+                            <p><FaGithub /> <a href="https://github.com/stevehvaughn"> GitHub Page</a></p>
                         </Col>
                     </Row>
                 </Container>
