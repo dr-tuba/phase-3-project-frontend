@@ -104,32 +104,26 @@ Create a new directory on your machine and run the following commands in your te
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-### Landing Page
-Pour yourself a cold one and watch the page do the same! Bubble animations and a golden ale colored background prepare you to remember your favorite breweries!
+### Students Tab
+<!-- Text here, gif below -->
 <p align='center'>
   <img width='75%' src=""/>
 </p>
 
-### Searching for Breweries
-Click on the home button and you are presented with a map and a search bar. Enter a city or state to being your search for your favorite breweries! Click a beer on the map to see the name of the brewery, and click the find button to display the card for that brewery. Or you can scroll through the list to start your search!  
+### Music Library Tab
+<!-- Text here, gif below -->  
 <p align='center'>
   <img width='75%' src=""/>
 </p>
 
-### Marking a Brewery as Visited
-Click on "Add to Visited" to mark that brewery as visited. Click on the Visited tab to see all of the breweries you have visited! 
+### Instrument Inventory Tab
+<!-- Text here, gif below -->
 <p align='center'>
   <img width='75%' src=""/>
 </p>
 
-### Visited Tab
-On the Visited Tab you can see all of your visited breweries on a map! You can also choose to favorite a specific brewery, rate a brewery 1-5 starts, sort by rating, search by name, and visit the website for that brewery. This is the heart of Deja-Bru! When you can't remember where you've visited and what you rated it, come to this page! 
-<p align='center'>
-  <img width='75%' src=""/>
-</p>
-
-### Favorites Tab
-On the Favorites Tab you can sort through your favorites by name, or state, as well as search by name. When you click view comments you can see any comments you made about that brewery and add a new comment. You can also remove the brewery from your favorites if they sell out to AB and they start making bad beer! 
+### Lockers Tab
+<!-- Text here, gif below -->
 <p align='center'>
   <img width='75%' src=""/>
 </p>
