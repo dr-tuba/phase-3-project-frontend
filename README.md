@@ -5,7 +5,7 @@
     Simplified Inventory Management & Digital Assistant for Band Directors
     <br />
     <br />
-    <a href="">View Demo</a>
+    <a href="https://www.loom.com/share/1fcd3ac44fe84415b8b5eb707b0ba025?sharedAppSource=personal_library">View Demo</a>
   </p>
 </p>
 
